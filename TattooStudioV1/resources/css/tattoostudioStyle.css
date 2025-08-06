@@ -252,15 +252,13 @@ strong {
     top: 50%;
     height: 0.1875rem;
     transform: translateY(-50%);
-    will-change: transform, opacity;
 }
 
-#burger-line, #burger-line::before, #burger-line::after { transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease; }
+#burger-line, #burger-line::before, #burger-line::after { transition: transform 0.3s; will-change: transform; }
 
 #burger-line::before, #burger-line::after {
     content: '';
     height: 0.1875rem;
-    will-change: transform;
 }
 
 #burger-line::before { top: -0.5rem; }
@@ -567,8 +565,8 @@ strong {
 .stat-item {
     background-color: #121212;
     border-radius: 50%;
-    width: clamp(75px, 16vw, 150px);
-    height: clamp(75px, 16vw, 150px);
+    width: clamp(75px, 20vw, 150px);
+    height: clamp(75px, 20vw, 150px);
     box-shadow: 0 4px 10px rgba(0,0,0,0.5);
 }
 
@@ -598,11 +596,11 @@ strong {
 }
 
 .stat-number {
-    font-size: clamp(1rem, 2vw, 1.8rem);
+    font-size: clamp(1rem, 2.6vw, 1.8rem);
 }
 
 .stat-label {
-    font-size: clamp(0.7rem, 1.5vw, 1rem);
+    font-size: clamp(0.6rem, 2.6vw, 1rem);
     letter-spacing: 0.5px;
     margin-top: 0.25rem;
 }
@@ -684,6 +682,7 @@ strong {
 #popular-gallery-container { /* scrollable gallery */
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
     margin: 0rem 7%;
 }
 
@@ -793,7 +792,7 @@ strong {
 }
 
 .award-description p {
-    font-size: clamp(0.6rem, 1.5vw, 1.5rem);
+    font-size: clamp(0.7rem, 1.5vw, 1.5rem);
     margin: 1rem 0 0 0;
 }
 
@@ -906,6 +905,7 @@ strong {
     content: 'o'; 
     top: 0;
     left: 0;
+    color: var(--color-instagram-tiktok-red); 
 }
 
 #letter-glitch::before { transform: translate(0.5px, 0.5px); }
@@ -929,7 +929,18 @@ strong {
         }
     }
 }
- 
+
+@supports (not (-webkit-filter: drop-shadow(0.5px 0.5px 0 red))) {
+  /* Safari-only fallback */
+  #tiktok-glitch,
+  #letter-glitch {
+    filter: none;
+    text-shadow:
+      -0.5px -0.5px 0 #24f6f0,
+       0.5px  0.5px 0 #F50057;
+  }
+}
+
 #map-container {
     padding: 0 2rem;
     height: 400px;
