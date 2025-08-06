@@ -310,7 +310,7 @@ strong {
 
 #video-container:after {	
     content: "";
-	background: var(--color-overlay-06);
+	background-color: var(--color-overlay-06);
 }
 
 #intro-video {
@@ -688,7 +688,7 @@ strong {
 
 /* Custom Scrollbar */
 #popular-gallery-container::-webkit-scrollbar { height: 12px;  /* Adjust the height of the scrollbar */ }
-#popular-gallery-container::-webkit-scrollbar-track { background: #1e1e1e;  /* Background of the scrollbar track */ }
+#popular-gallery-container::-webkit-scrollbar-track { background-color: #1e1e1e;  /* Background of the scrollbar track */ }
 #popular-gallery-container::-webkit-scrollbar-thumb, #popular-gallery-container::-webkit-scrollbar-track { border-radius: 10px; }
 #popular-gallery-container::-webkit-scrollbar-thumb {
     background-color: #555;  /* Color of the scrollbar thumb */
@@ -852,10 +852,10 @@ strong {
 
 #footer-container p { font-size: clamp(1.3rem, 5.3vw, 1.6rem); } 
 
-#footer-nav { margin: 1rem 0; }
+#footer-nav { margin: 1rem 0 1rem -3.5rem; }
 
 #social-medias li { padding: 0.5rem 2rem; }
-
+#social-medias li:last-child { place-content: center; }
 #social-medias li a,
 #social-medias li a i{
     margin: auto;
@@ -873,39 +873,11 @@ strong {
     -webkit-mask: linear-gradient(135deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
     mask: linear-gradient(135deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
 }
-
-#tiktok-glitch {
-    filter: 
-        drop-shadow(-0.5px -0.5px 0 var(--color-tiktok-cyan))
-        drop-shadow(1px 1px 0 var(--color-instagram-tiktok-red));
-}
-
-@-moz-document url-prefix() {
-    #tiktok-glitch {
-        text-shadow: 
-            -1px -1px 0 var(--color-tiktok-cyan),
-            1px 1px 0 var(--color-instagram-tiktok-red);
-    }
-}
-
-@media not all and (min-resolution: 0.001dpcm) {
-    @supports (-webkit-appearance: none) {
-        #tiktok-glitch {
-            text-shadow: 
-                -1px -1px 0 var(--color-tiktok-cyan),
-                1px 1px 0 var(--color-instagram-tiktok-red);
-        }
-    }
-}
-
-@supports (not (-webkit-filter: drop-shadow(0 0 0 red))) {
-  /* Safari-only fallback */
-  #tiktok-glitch {
-    text-shadow:
-      -1px -1px 0 var(--color-tiktok-cyan),
-       1px 1px 0 var(--color-instagram-tiktok-red);
-  }
-}
+#tiktok-glitch { position: relative; }
+#tiktok-glitch i { position: absolute; top: -15px; }
+#tiktok-base { color: var(--color-white); }
+#tiktok-cyan { color: var(--color-tiktok-cyan); transform: translate(-1px, -1px); }
+#tiktok-red { color: var(--color-instagram-tiktok-red);  transform: translate(1px, 1px); }
 
 #map-container {
     padding: 0 2rem;
@@ -929,12 +901,10 @@ strong {
 
 /* Footer media queries */
 @media (max-width: 768px) {
+    #footer-nav { margin: 1rem 0; }
     #social-medias { flex-direction: column; }
 
     #social-medias li a i { float: right; }
 
-    #tiktok-glitch {
-        position: relative;
-        right: -1.05rem;
-    }
+    #tiktok-glitch i { right: -83px; }
 }
