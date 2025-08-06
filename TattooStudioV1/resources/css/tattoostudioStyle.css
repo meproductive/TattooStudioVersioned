@@ -81,9 +81,9 @@ button { border: none; background-color: transparent; }
 
 #booking-appointment, #booking-socials, #about-me-section, .stat-item, #about-me, #popular-gallery-figure, #popular-quote-wrapper, #carousel-quote { justify-content: center; align-items: center; } /* <--- All these items are flex-box and in both axis centered */
 
-#page-content, #hamburger-btn, #x-btn, #photo-gallery, .switcher-wrapper, #carousel-container, #popular-gallery-figure, #letter-glitch, .photo-card, .status-container, .stat-item, .stat-number, .stat-label { position: relative; } /* <--- All these items are positioned relatively on a purpose */
+#page-content, #hamburger-btn, #x-btn, #photo-gallery, .switcher-wrapper, #carousel-container, #popular-gallery-figure, .photo-card, .status-container, .stat-item, .stat-number, .stat-label { position: relative; } /* <--- All these items are positioned relatively on a purpose */
 
-#burger-line, #burger-line::before, #burger-line::after, #glassy-button, #glassy-button::before, #quote-highlight, #booking-appointment, #x-line, #x-line::after, .card-description, .stat-icon, #ink-img, .carousel-control, .switcher, #letter-glitch::before { position: absolute; } /* <--- All these items are positioned absolutely on a purpose */
+#burger-line, #burger-line::before, #burger-line::after, #glassy-button, #glassy-button::before, #quote-highlight, #booking-appointment, #x-line, #x-line::after, .card-description, .stat-icon, #ink-img, .carousel-control, .switcher { position: absolute; } /* <--- All these items are positioned absolutely on a purpose */
 
 #burger-line, #burger-line::before, #burger-line::after, #video-container:after, #glassy-button::before, #booking-appointment, #x-line, #x-line::after, .photo-card img, .card-description, .profile-photo, .gallery-item img, .switcher, .carousel-item img, .award-description, #map-container { width: 100%; } /* <--- All these items width property set to 100% due to their layouts */
 
@@ -101,7 +101,7 @@ a, #aftercare-text-content * { font-family: var(--font-roboto); } /* !Important 
 .fade-in-animation, #booking-appointment, .subtitle, [data-animate], .stat-icon, .switcher { opacity: 0; }
 #booking-appointment.active, .title-wrapper.draw-title, [data-glow] { opacity: 1; }
 
-#custom-background, #letter-glitch::before { z-index: var(--layer-behind); } /* Index value -1 */
+#custom-background { z-index: var(--layer-behind); } /* Index value -1 */
 #video-container, .stat-icon, #ink-img { z-index: var(--layer-mid); } /* Index value 0 */
 #primary-social, #hamburger-btn, #glassy-button, #video-container:after, .stat-item, .carousel-item, .carousel-control, #popular-quote-wrapper { z-index: var(--layer-front); } /* Index value 1 */
 #header, #booking-appointment, #blackout-overlay { z-index: var(--layer-top); } /* Index value 2 */
@@ -423,10 +423,10 @@ strong {
     height: 100%;
 }
 
-#booking-socials h3, 
-#booking-socials li a { font-size: clamp(1.1rem, 3.3vw, 2rem); }
+#booking-socials h2, 
+#booking-socials li a { font-size: clamp(1.3rem, 5.3vw, 2rem); }
 
-#booking-socials p { font-size: clamp(0.8rem, 3.3vw, 1.3rem); }
+#booking-socials p { font-size: clamp(0.9rem, 3.9vw, 1.3rem); }
 
 #booking-socials li a i {
     font-size: clamp(1.5rem, 1.8vw, 2.2rem);
@@ -471,6 +471,7 @@ strong {
 .subtitle {
     padding: 2rem 1rem;
     font-size: clamp(1.5rem, 2.9vmax, 2.9rem);
+    font-weight: 200;
 }
 
 @keyframes drawLine {
@@ -595,9 +596,7 @@ strong {
     transform: translate(-50%, -50%) rotate(180deg);
 }
 
-.stat-number {
-    font-size: clamp(1rem, 2.6vw, 1.8rem);
-}
+.stat-number { font-size: clamp(1rem, 2.6vw, 1.8rem); }
 
 .stat-label {
     font-size: clamp(0.6rem, 2.6vw, 1rem);
@@ -635,12 +634,12 @@ strong {
 
 #about-me-summary p {
     text-align: justify;
-    line-height: 1.6;
+    line-height: 1.7;
     letter-spacing: 0.5px;
     word-spacing: -0.5px;
     font-size: clamp(0.85rem, 1.6vw, 1.2rem);
 }
-
+.stat-number, #about-me-summary h2 { font-weight: 300; } .stat-label, #about-me-summary-p { font-weight: 200; }
 /* About me media queries */
 @media (max-width: 1025px) {
     #about-me-section { gap: 3rem; }
@@ -816,11 +815,12 @@ strong {
     padding: 1rem 0;
     line-height: 1.6;
 }
+#aftercare-text-content p, #aftercare-text-content li { font-weight: 200; }
 
 #aftercare-text-content h2,
 #aftercare-text-content h3 {
     margin-top: 2rem;
-    font-weight: bold;
+    font-weight: 700;
 }
 
 #aftercare-text-content .styled-list {
@@ -863,7 +863,7 @@ strong {
 
 #footer-container {  padding: 2rem 0rem; }
 
-#footer-container p { font-size: clamp(1.3rem, 5.3vw, 1.6rem); } 
+#footer-container p { font-size: clamp(1.3rem, 5.3vw, 1.6rem); font-weight: 200;} 
 
 #footer-nav { margin: 1rem 0; }
 
@@ -887,57 +887,34 @@ strong {
     mask: linear-gradient(135deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
 }
 
-#tiktok-glitch,
-#letter-glitch {
-    /* Chrome/Firefox/Safari */
-    filter:
-      drop-shadow(-0.5px -0.5px 0 var(--color-tiktok-cyan))
-      drop-shadow(1px 1px 0 var(--color-instagram-tiktok-red))
-      contrast(150%) brightness(110%);
-    /* Older WebKit prefix for Safari */
-    -webkit-filter:
-      drop-shadow(-0.5px -0.5px 0 var(--color-tiktok-cyan))
-      drop-shadow(1px 1px 0 var(--color-instagram-tiktok-red))
-      contrast(150%) brightness(110%);
+#tiktok-glitch {
+    text-shadow: -1px -1px 0 var(--color-tiktok-cyan), 1px 1px 0 var(--color-instagram-tiktok-red)
 }
-
-#letter-glitch::before {
-    content: 'o'; 
-    top: 0;
-    left: 0;
-    color: var(--color-instagram-tiktok-red); 
-}
-
-#letter-glitch::before { transform: translate(0.5px, 0.5px); }
 
 @-moz-document url-prefix() {
-    #tiktok-glitch, #letter-glitch {
-        filter: none;
+    #tiktok-glitch {
         text-shadow: 
-            -0.5px -0.5px 0 var(--color-tiktok-cyan),
-            0.5px 0.5px 0 var(--color-instagram-tiktok-red);
+            -1px -1px 0 var(--color-tiktok-cyan),
+            1px 1px 0 var(--color-instagram-tiktok-red);
     }
 }
 
 @media not all and (min-resolution: 0.001dpcm) {
     @supports (-webkit-appearance: none) {
-        #tiktok-glitch, #letter-glitch {
-            filter: none;
+        #tiktok-glitch {
             text-shadow: 
-                -0.5px -0.5px 0 var(--color-tiktok-cyan),
-                0.5px 0.5px 0 var(--color-instagram-tiktok-red);
+                -1px -1px 0 var(--color-tiktok-cyan),
+                1px 1px 0 var(--color-instagram-tiktok-red);
         }
     }
 }
 
-@supports (not (-webkit-filter: drop-shadow(0.5px 0.5px 0 red))) {
+@supports (not (-webkit-filter: drop-shadow(0.5px 0.5px 0 var(--color-instagram-tiktok-red)))) {
   /* Safari-only fallback */
-  #tiktok-glitch,
-  #letter-glitch {
-    filter: none;
+  #tiktok-glitch {
     text-shadow:
-      -0.5px -0.5px 0 #24f6f0,
-       0.5px  0.5px 0 #F50057;
+      -1px -1px 0 var(--color-tiktok-cyan),
+       1px 1px 0 var(--color-instagram-tiktok-red);
   }
 }
 
